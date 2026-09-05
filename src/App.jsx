@@ -30,7 +30,7 @@ export default function App() {
               THE JUNK DRAWER<span className="title-cursor">_</span>
             </h1>
           </div>
-          <div className="tagline">free samples &amp; drum kits — no accounts, no subscriptions, no catch.</div>
+          <div className="tagline">free samples</div>
           <div className="stats-row">
             <span>
               <strong>{packs.length}</strong> packs indexed
