@@ -160,4 +160,17 @@ export const packs = [
     url: '/downloads/sound7-free-midi-chords.zip',
     gate: 'none',
   },
+  {
+    id: 'frutiger-aero-sound-fx',
+    name: 'Frutiger Aero Sound FX',
+    style: 'Frutiger Aero · UI/Interface',
+    category: 'Sound Effects',
+    contents: 'Confirm/cancel/cursor/menu-open UI blips, beeps, warning tones, gauge & roulette sounds — Japanese interface SFX pack',
+    format: 'MP3',
+    sampleCount: 102,
+    sizeLabel: '2.2 MB',
+    source: 'hosted',
+    url: '/downloads/frutiger-aero-sound-fx.zip',
+    gate: 'none',
+  },
 ];
