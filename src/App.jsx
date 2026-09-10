@@ -23,6 +23,9 @@ export default function App() {
 
   return (
     <div className="page">
+      <div className="bubble bubble-1" />
+      <div className="bubble bubble-2" />
+      <div className="bubble bubble-3" />
       <div className="container">
         <header className="header">
           <div className="title-row">

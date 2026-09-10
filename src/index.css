@@ -1,5 +1,5 @@
 :root {
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 * {
@@ -11,15 +11,17 @@ body,
 #root {
   margin: 0;
   min-height: 100%;
-  background: #0d0f0d;
 }
 
 body {
-  font-family: 'IBM Plex Mono', 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
-  color: #d8ded8;
+  font-family: 'Nunito Sans', system-ui, sans-serif;
+  color: #1c3144;
+  background: linear-gradient(180deg, #2f7cd6 0%, #6fb3e8 20%, #bfe3f7 42%, #eef8fd 66%, #ffffff 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
 }
 
 ::selection {
-  background: #4ade80;
-  color: #0d0f0d;
+  background: #3fa34d;
+  color: #ffffff;
 }
