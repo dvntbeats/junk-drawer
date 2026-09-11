@@ -26,22 +26,24 @@ export default function App() {
       <div className="bubble bubble-1" />
       <div className="bubble bubble-2" />
       <div className="bubble bubble-3" />
+      <div className="bubble bubble-4" />
+      <div className="bubble bubble-5" />
       <div className="container">
         <header className="header">
-          <div className="title-row">
-            <h1 className="title">
-              THE JUNK DRAWER<span className="title-cursor">_</span>
+          <div className="title-block">
+            <h1 className="title" data-text="THE JUNK DRAWER">
+              THE JUNK DRAWER
             </h1>
+            <div className="tagline">free samples</div>
           </div>
-          <div className="tagline">free samples</div>
-          <div className="stats-row">
-            <span>
+          <div className="stats-cluster">
+            <span className="stat-badge stat-badge-1">
               <strong>{packs.length}</strong> packs indexed
             </span>
-            <span>
+            <span className="stat-badge stat-badge-2">
               <strong>{totalSamples.toLocaleString()}</strong> samples total
             </span>
-            <span>growing toward 100+</span>
+            <span className="stat-badge stat-badge-3">growing toward 100+</span>
           </div>
         </header>
 
@@ -53,15 +55,17 @@ export default function App() {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
           />
-          {CATEGORIES.map((c) => (
-            <button
-              key={c}
-              className={`chip${category === c ? ' active' : ''}`}
-              onClick={() => setCategory(c)}
-            >
-              {c}
-            </button>
-          ))}
+          <div className="chip-row">
+            {CATEGORIES.map((c) => (
+              <button
+                key={c}
+                className={`chip${category === c ? ' active' : ''}`}
+                onClick={() => setCategory(c)}
+              >
+                {c}
+              </button>
+            ))}
+          </div>
         </div>
 
         <div className="table-head">

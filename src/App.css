@@ -23,6 +23,27 @@
   );
   box-shadow: inset 0 0 30px rgba(255, 255, 255, 0.4), 0 10px 40px rgba(30, 90, 150, 0.12);
   z-index: 0;
+  animation-name: drift;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes drift {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    transform: translate(18px, -26px) scale(1.03);
+  }
+  50% {
+    transform: translate(-10px, -44px) scale(0.98);
+  }
+  75% {
+    transform: translate(-24px, -14px) scale(1.02);
+  }
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
 }
 
 .bubble-1 {
@@ -30,6 +51,8 @@
   height: 220px;
   top: -60px;
   right: -40px;
+  animation-duration: 22s;
+  animation-delay: -3s;
 }
 
 .bubble-2 {
@@ -37,6 +60,8 @@
   height: 140px;
   bottom: 8%;
   left: -50px;
+  animation-duration: 17s;
+  animation-delay: -8s;
 }
 
 .bubble-3 {
@@ -45,6 +70,28 @@
   top: 40%;
   right: 6%;
   opacity: 0.7;
+  animation-duration: 13s;
+  animation-delay: -1s;
+}
+
+.bubble-4 {
+  width: 50px;
+  height: 50px;
+  top: 16%;
+  left: 12%;
+  opacity: 0.6;
+  animation-duration: 15s;
+  animation-delay: -6s;
+}
+
+.bubble-5 {
+  width: 130px;
+  height: 130px;
+  bottom: -50px;
+  right: 18%;
+  opacity: 0.55;
+  animation-duration: 26s;
+  animation-delay: -14s;
 }
 
 .container {
@@ -57,56 +104,121 @@
 .header {
   padding-bottom: 22px;
   margin-bottom: 24px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
 }
 
-.title-row {
-  display: flex;
-  align-items: baseline;
-  gap: 12px;
-  flex-wrap: wrap;
+.title-block {
+  transform: rotate(-1.4deg);
+  flex: 1 1 320px;
+  min-width: 0;
+  position: relative;
 }
 
 .title {
   font-family: 'Baloo 2', 'Nunito Sans', sans-serif;
-  font-size: 34px;
+  font-size: 36px;
   font-weight: 800;
   letter-spacing: -0.01em;
   color: #1c5b8f;
   margin: 0;
-  text-shadow: 0 2px 0 rgba(255, 255, 255, 0.6), 0 1px 12px rgba(255, 255, 255, 0.5);
+  position: relative;
+  display: inline-block;
+  background: linear-gradient(180deg, #ffffff 0%, #bfe6ff 38%, #1c5b8f 40%, #17456b 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 1px 12px rgba(255, 255, 255, 0.5);
 }
 
-.title-cursor {
-  color: #3fa34d;
-  animation: blink 1.1s step-end infinite;
-}
-
-@keyframes blink {
-  50% {
-    opacity: 0;
-  }
+.title::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 100%;
+  width: 100%;
+  color: rgba(28, 91, 143, 0.16);
+  transform: scaleY(-0.55) skewX(-2deg);
+  transform-origin: top;
+  -webkit-mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.5), transparent 70%);
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.5), transparent 70%);
+  pointer-events: none;
 }
 
 .tagline {
   color: #3a5a72;
   font-size: 14px;
-  font-weight: 600;
-  margin-top: 2px;
+  font-weight: 700;
+  margin-top: 6px;
+  margin-left: 3px;
+  display: inline-block;
+  transform: rotate(0.8deg);
 }
 
-.stats-row {
-  margin-top: 14px;
+.stats-cluster {
   display: flex;
-  gap: 20px;
+  align-items: center;
+  gap: 12px;
   flex-wrap: wrap;
-  font-size: 12.5px;
-  color: #3a5a72;
-  font-weight: 600;
+  flex: 0 0 auto;
+  padding-top: 6px;
 }
 
-.stats-row strong {
+.stat-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11.5px;
+  color: #235a7a;
+  font-weight: 700;
+  white-space: nowrap;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0.4) 100%);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: 999px;
+  padding: 7px 13px;
+  box-shadow: 0 4px 12px rgba(30, 90, 150, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  animation-name: bob;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+.stat-badge strong {
   color: #2e8b57;
   font-weight: 800;
+}
+
+.stat-badge-1 {
+  transform: rotate(-3deg);
+  animation-duration: 6s;
+  animation-delay: -1s;
+}
+
+.stat-badge-2 {
+  transform: translateY(6px) rotate(2deg);
+  animation-duration: 7.5s;
+  animation-delay: -4s;
+}
+
+.stat-badge-3 {
+  transform: translateY(-3px) rotate(-1.5deg);
+  animation-duration: 5.5s;
+  animation-delay: -2.5s;
+  opacity: 0.9;
+}
+
+@keyframes bob {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 -5px;
+  }
 }
 
 .controls {
@@ -114,6 +226,13 @@
   gap: 10px;
   flex-wrap: wrap;
   margin-bottom: 22px;
+  align-items: center;
+}
+
+.chip-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
 .search-input {
@@ -157,13 +276,49 @@
   cursor: pointer;
   white-space: nowrap;
   box-shadow: 0 3px 10px rgba(30, 90, 150, 0.1);
-  transition: transform 0.1s ease;
+  transition: transform 0.15s ease;
+  animation-name: chipfloat;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+/* Gentle, out-of-phase float per chip — echoes the bubbles drifting behind
+   them instead of sitting as a dead-level row of identical buttons. */
+.chip-row .chip:nth-of-type(5n + 1) {
+  animation-duration: 6.5s;
+  animation-delay: -0.5s;
+}
+.chip-row .chip:nth-of-type(5n + 2) {
+  animation-duration: 8s;
+  animation-delay: -3s;
+}
+.chip-row .chip:nth-of-type(5n + 3) {
+  animation-duration: 5.5s;
+  animation-delay: -5.5s;
+}
+.chip-row .chip:nth-of-type(5n + 4) {
+  animation-duration: 7s;
+  animation-delay: -1.5s;
+}
+.chip-row .chip:nth-of-type(5n + 5) {
+  animation-duration: 9s;
+  animation-delay: -4s;
+}
+
+@keyframes chipfloat {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 -4px;
+  }
 }
 
 .chip:hover {
   border-color: #3fa34d;
   color: #1c5b3a;
-  transform: translateY(-1px);
+  translate: 0 -3px;
 }
 
 .chip.active {
